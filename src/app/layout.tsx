@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Marca Ubi — Brand Identity & Digital Experience Studio",
   description:
     "Marca Ubi builds brand identities, content systems, and digital experiences that stay consistent everywhere your customers see you. Strategy, design, and execution — engineered for modern brands.",
+  icons: {
+    icon: "/m-favicon.png",
+  },
 };
 
 export default function RootLayout({

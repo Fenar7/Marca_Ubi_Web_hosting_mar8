@@ -292,12 +292,51 @@ export default function StepSectionContainer() {
       });
     };
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || mobileMotion) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setFinalValues();
       return;
     }
 
     const context = gsap.context(() => {
+      if (mobileMotion) {
+        // On mobile: simple fade-in/out entrance — scrub requires Lenis which is off on phones
+        gsap.set(monogram, {
+          autoAlpha: 0,
+          scale: 0.5,
+          y: 0,
+          transformOrigin: "50% 50%",
+        });
+
+        const monogramTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: stepsList,
+            start: "top 88%",
+            end: "bottom 10%",
+            toggleActions: "play none none reverse",
+          },
+        });
+
+        monogramTimeline
+          .to(monogram, {
+            autoAlpha: 0.88,
+            scale: 1.6,
+            duration: 0.9,
+            ease: "expo.out",
+          })
+          .to(
+            monogram,
+            {
+              autoAlpha: 0,
+              scale: 3.2,
+              duration: 0.6,
+              ease: "power2.in",
+            },
+            ">0.4",
+          );
+
+        return;
+      }
+
       setInitialValues();
 
       const monogramTimeline = gsap.timeline({
