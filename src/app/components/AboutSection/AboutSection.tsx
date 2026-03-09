@@ -182,15 +182,15 @@ export default function AboutSection() {
       const tagTimeline = gsap.timeline({
         scrollTrigger: mobileMotion
           ? {
-              trigger: section,
-              start: "top 74%",
-              toggleActions: "play none none reverse",
-            }
+            trigger: section,
+            start: "top 74%",
+            toggleActions: "play none none reverse",
+          }
           : {
-              trigger: section,
-              start: "top 80%",
-              toggleActions: "play none none reverse",
-            },
+            trigger: section,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
       });
 
       let starAmbient: gsap.core.Tween | null = null;
@@ -277,17 +277,17 @@ export default function AboutSection() {
         const servicesTimeline = gsap.timeline({
           scrollTrigger: mobileMotion
             ? {
-                trigger: servicesContainer,
-                start: "top 74%",
-                toggleActions: "play none none reverse",
-              }
+              trigger: servicesContainer,
+              start: "top 74%",
+              toggleActions: "play none none reverse",
+            }
             : {
-                trigger: servicesContainer,
-                start: "top 92%",
-                end: "top 28%",
-                scrub: 0.95,
-                invalidateOnRefresh: true,
-              },
+              trigger: servicesContainer,
+              start: "top 92%",
+              end: "top 28%",
+              scrub: 0.95,
+              invalidateOnRefresh: true,
+            },
         });
 
         servicesTimeline
@@ -378,17 +378,17 @@ export default function AboutSection() {
         const aboutContentTimeline = gsap.timeline({
           scrollTrigger: mobileMotion
             ? {
-                trigger: textAndMetrics ?? section,
-                start: "top 76%",
-                toggleActions: "play none none reverse",
-              }
+              trigger: textAndMetrics ?? section,
+              start: "top 76%",
+              toggleActions: "play none none reverse",
+            }
             : {
-                trigger: textAndMetrics ?? section,
-                start: "top 92%",
-                end: "top 28%",
-                scrub: 0.95,
-                invalidateOnRefresh: true,
-              },
+              trigger: textAndMetrics ?? section,
+              start: "top 92%",
+              end: "top 28%",
+              scrub: 0.95,
+              invalidateOnRefresh: true,
+            },
         });
 
         if (aboutDescription) {
@@ -509,17 +509,17 @@ export default function AboutSection() {
         const metricsTimeline = gsap.timeline({
           scrollTrigger: mobileMotion
             ? {
-                trigger: metricsCards,
-                start: "top 78%",
-                toggleActions: "play none none reverse",
-              }
+              trigger: metricsCards,
+              start: "top 78%",
+              toggleActions: "play none none reverse",
+            }
             : {
-                trigger: metricsCards,
-                start: "top 86%",
-                end: "top 18%",
-                scrub: 0.92,
-                invalidateOnRefresh: true,
-              },
+              trigger: metricsCards,
+              start: "top 86%",
+              end: "top 18%",
+              scrub: 0.92,
+              invalidateOnRefresh: true,
+            },
         });
 
         metricsTimeline
@@ -730,7 +730,7 @@ export default function AboutSection() {
           <div className={styles.aboutTag}>
             <img className={styles.aboutStar} src="/images/asterisk.png" alt="" aria-hidden="true" ref={aboutStarRef} />
             <p className={styles.aboutTagText} ref={aboutTagTextRef}>
-              About /Marca Ubi
+              About <span className="tag-separator">/</span>Marca Ubi
             </p>
           </div>
           <h2 className={styles.mainTitle} style={{ position: "relative" }}>

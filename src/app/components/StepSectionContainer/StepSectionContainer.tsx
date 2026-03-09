@@ -153,17 +153,17 @@ export default function StepSectionContainer() {
       const titleTimeline = gsap.timeline({
         scrollTrigger: mobileMotion
           ? {
-              trigger: section,
-              start: "top 82%",
-              toggleActions: "play none none reverse",
-            }
+            trigger: section,
+            start: "top 82%",
+            toggleActions: "play none none reverse",
+          }
           : {
-              trigger: section,
-              start: "top 78%",
-              end: "top 24%",
-              scrub: 1,
-              invalidateOnRefresh: true,
-            },
+            trigger: section,
+            start: "top 78%",
+            end: "top 24%",
+            scrub: 1,
+            invalidateOnRefresh: true,
+          },
       });
 
       titleTimeline
@@ -460,7 +460,7 @@ export default function StepSectionContainer() {
           tagTextClassName="step-title-tag-text"
           label={
             <span className="step-title-tag-text-inner" ref={tagTextRef}>
-              Step-by-Step
+              Step<span className="tag-separator">-</span>by<span className="tag-separator">-</span>Step
             </span>
           }
           rightColumnClassName="step-title-right-column"

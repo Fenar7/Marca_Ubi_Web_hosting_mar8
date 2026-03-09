@@ -252,3 +252,8 @@ html.custom-cursor-enabled *::after {
 @import "./components/ContactCtaSection/style";
 @import "./components/Footer/style";
 
+/* Tag separator characters (hyphen, slash) use Poppins since Movatif has no glyph */
+.tag-separator {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
