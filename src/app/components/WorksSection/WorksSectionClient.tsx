@@ -40,20 +40,10 @@ const WorksSectionClient = ({ works }: WorksSectionClientProps) => {
 
             if (titleFill) {
                 if (mobileMotion) {
-                    gsap.fromTo(
-                        titleFill,
-                        { "--title-fill": "0%" },
-                        {
-                            "--title-fill": "100%",
-                            duration: 0.8,
-                            ease: "power2.out",
-                            scrollTrigger: {
-                                trigger: ".title-section-container",
-                                start: "top 82%",
-                                toggleActions: "play none none reverse",
-                            },
-                        },
-                    );
+                    // On real mobile: immediately show title fully — the CSS default is 0%
+                    // which leaves text invisible if ScrollTrigger misfires (iOS height changes).
+                    // Card animations are sufficient for mobile impact.
+                    gsap.set(titleFill, { "--title-fill": "100%" });
                 } else {
                     gsap
                         .timeline({

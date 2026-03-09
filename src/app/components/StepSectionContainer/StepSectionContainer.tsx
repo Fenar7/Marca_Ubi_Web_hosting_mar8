@@ -310,9 +310,10 @@ export default function StepSectionContainer() {
         const monogramTimeline = gsap.timeline({
           scrollTrigger: {
             trigger: stepsList,
-            start: "top 88%",
+            start: "top 90%",
             end: "bottom 10%",
             toggleActions: "play none none reverse",
+            invalidateOnRefresh: true,
           },
         });
 

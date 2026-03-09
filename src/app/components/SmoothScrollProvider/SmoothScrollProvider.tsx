@@ -34,7 +34,15 @@ export default function SmoothScrollProvider({ children }: SmoothScrollProviderP
     }
 
     if (shouldUseMobileMotion()) {
+      // On real mobile: iOS shrinks the viewport when address bar hides / shows.
+      // The initial rAF refresh fires before layout settles → trigger positions are wrong.
+      // Add a 600ms delayed refresh so everything recalibrates after fonts + images load.
+      const mobileRefreshTimer = window.setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 600);
+
       return () => {
+        window.clearTimeout(mobileRefreshTimer);
         window.removeEventListener("initial-loader:complete", handleScrollRefresh);
       };
     }
